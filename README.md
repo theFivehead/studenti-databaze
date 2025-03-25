@@ -1,10 +1,9 @@
 # Zadání projektu
 Předpokládejme databázi studentů technické univerzity, kde každý student má svoje identifikační číslo, jméno, příjmení a datum narození. Každý student může dostat libovolný počet známek (standardní známkování 1 až 5), z nějž je počítán studijní průměr. Existují dvě skupiny studentů lišící se dle
 dovednosti:
-- Studenti oboru telekomunikací, kteří dokážou převést svoje jméno a příjmení na Morseovu
-abecedu
-- Studenti oboru kyberbezpečnosti, kteří dokážou vyjádřit svoje jméno a příjmení ve formě
-hashe (použití hashovací funkce)
+- Studenti oboru telekomunikací, kteří dokážou převést svoje jméno a příjmení na Morseovu abecedu
+- Studenti oboru kyberbezpečnosti, kteří dokážou vyjádřit svoje jméno a příjmení ve formě hashe (použití hashovací funkce)
+
 Při přijetí na univerzitu, je každý student zařazen do jedné z výše uvedených skupin. V průběhu studia
 není možné studenta přesunout do jiné skupiny.\
 Vytvořte v programovacím jazyce JAVA ve vývojovém prostředí Eclipse databázový program, který
