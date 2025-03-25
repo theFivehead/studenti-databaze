@@ -6,7 +6,7 @@ abecedu
 - Studenti oboru kyberbezpečnosti, kteří dokážou vyjádřit svoje jméno a příjmení ve formě
 hashe (použití hashovací funkce)
 Při přijetí na univerzitu, je každý student zařazen do jedné z výše uvedených skupin. V průběhu studia
-není možné studenta přesunout do jiné skupiny.
+není možné studenta přesunout do jiné skupiny.\
 Vytvořte v programovacím jazyce JAVA ve vývojovém prostředí Eclipse databázový program, který
 umožní uživateli následující:
 - [ ] Přidávat nové studenty - uživatel vždy provede výběr skupiny, do které chce studenta přiřadit, zadá
