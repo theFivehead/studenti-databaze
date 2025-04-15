@@ -9,7 +9,7 @@ import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 
 public class Databaze_studentu {
-	HashMap<Integer,Student> studenti=new HashMap<Integer, Student>();
+	private HashMap<Integer,Student> studenti=new HashMap<Integer, Student>();
 	Scanner Dsc=new Scanner(System.in);
 	
 	
@@ -50,7 +50,13 @@ public class Databaze_studentu {
 	}
 	boolean pridat_studenta(Student student) {
 		try {
-			int ID_studenta=studenti.size();
+			int ID_studenta;
+			if(student.getID()==-1) {
+				ID_studenta=studenti.size();
+			}
+			else {
+				ID_studenta=student.getID();
+			}
 			student.setID(ID_studenta);
 			studenti.put(ID_studenta,student);
 			return true;
@@ -60,6 +66,7 @@ public class Databaze_studentu {
 			return false;
 		}
 	}
+	
 	boolean odebrat_studenta(int ID) {
 		try {
 			studenti.remove(ID);
@@ -105,7 +112,7 @@ public class Databaze_studentu {
 		System.out.println("Počet studentů\n"+"kybernetická bezpečnost: "+k_pocet+"\ninformační bezpečnost: "+i_pocet);
 	}
 	
-	void vypsat_studenty() {
+	String vypsat_studenty() {
 		Student[] serazeni= new Student[studenti.size()];
 		String tele="telekomunikace:\n",kyber="kyberbezpecnost:\n";
 		int i=0;
@@ -123,18 +130,19 @@ public class Databaze_studentu {
 				kyber=kyber+serazeni[i1].toString()+"\n";
 			}
 		}
-		System.out.println(tele+kyber);
+		return tele+kyber;
 		
 	}
-	String vypsat_studenta(int ID) {
+	Student vypsat_studenta(int ID) {
 		try {
-		return studenti.get(ID).toString();
+		return studenti.get(ID);
 		}
 		catch (NullPointerException e) {
 			System.err.println("Student s timto ID neexistuje");
-			return "";
+			return null;
 		}
 	}
+	
 	boolean pridat_znamku(int ID,int znamka) {
 		try {
 			studenti.get(ID).pridat_znamku(znamka);
@@ -200,7 +208,8 @@ public class Databaze_studentu {
 		        	  this.odebrat_studenta(Integer.parseInt(csv_data[0]));
 		        	  }
 		        	  catch (NumberFormatException e) {
-						// TODO: handle exception
+						System.err.println("ID musi byt cislo");
+						continue;
 					}
 		          }
 		  		}
@@ -240,6 +249,9 @@ public class Databaze_studentu {
 		}
 
 		return true;
+	}
+	Integer[] getIDs() {
+	    return studenti.keySet().toArray(new Integer[studenti.size()]);
 	}
 	
 }

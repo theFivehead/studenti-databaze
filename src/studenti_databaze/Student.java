@@ -1,9 +1,7 @@
 package studenti_databaze;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import byte_konvertor.Konvertor;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -80,7 +78,6 @@ public class Student {
 			return true;
 		}
 	}
-	@SuppressWarnings("finally")
 	public String dovednost() {
 		String kombinace=this.jmeno+this.prijmeni;
 		switch(this.obor) {

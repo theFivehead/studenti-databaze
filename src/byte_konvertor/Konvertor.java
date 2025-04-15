@@ -1,6 +1,6 @@
 package byte_konvertor;
 
-final public class Konvertor {
+abstract public class Konvertor {
 	public static String bytesToHex(byte[] hash) {
 	    StringBuilder hexString = new StringBuilder(2 * hash.length);
 	    for (int i = 0; i < hash.length; i++) {
