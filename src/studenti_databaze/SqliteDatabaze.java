@@ -69,8 +69,9 @@ public interface SqliteDatabaze {
 		        System.out.println("Ukladaji se data nevypinejte program, aby nedoslo ke poskozeni dat.");
 		        Integer[] id_studentu=ukladanaDatabaze.getIDs();
 		        
+		        System.out.println();
 		        for(Integer id:id_studentu) {
-		        	System.out.println(ukladanaDatabaze.vypsat_studenta(id).getJmeno());
+		        	System.out.print(".");
 		        	PreparedStatement sqlVlozStudenta = conn.prepareStatement("INSERT INTO studenti VALUES(?,?,?,?,?)");
 		        	sqlVlozStudenta.setInt(1, id);
 		        	sqlVlozStudenta.setString(2, ukladanaDatabaze.vypsat_studenta(id).getJmeno());
@@ -89,17 +90,17 @@ public interface SqliteDatabaze {
 	            System.err.println(e.getMessage());
 	        }
 	        
-	        System.out.println("Data byla ulozena");
+	        System.out.println("\nData byla uložena");
 	        
 	}
 	 
 	 public static Databaze_studentu nacist_data(String JDatabaze) {
 		 Databaze_studentu nacitanaDatabaze=new Databaze_studentu();
-		 System.out.println("Nacitam data");
+		 System.out.println("Načítám data");
 	        try {
 	            Class.forName("org.sqlite.JDBC");
 	        } catch (ClassNotFoundException e) {
-	            System.err.println("SQLite JDBC driver not found!");
+	            System.err.println("SQLite JDBC driver nebyl nalezen!");
 	            e.printStackTrace();
 	            return null;
 	        }

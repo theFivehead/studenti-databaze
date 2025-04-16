@@ -3,17 +3,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 
 public class Databaze_studentu {
 	private HashMap<Integer,Student> studenti=new HashMap<Integer, Student>();
-	Scanner Dsc=new Scanner(System.in);
-	
 	
 	void pridat_studenta_dialog() {
+		Scanner Dsc=new Scanner(System.in);
 		String jmeno,prijmeni,input;
 		int cislo_oboru;
 		boolean spatne=false;
@@ -25,6 +26,7 @@ public class Databaze_studentu {
 		System.out.println("Zadejte prijmeni studenta");
 		prijmeni=Dsc.nextLine();
 		do {
+			spatne=false;
 			System.out.println("Zadejte datum narozeni studenta (v tomto formatu dd.MM.yyyy)");
 			try {
 				input=Dsc.nextLine();
@@ -68,14 +70,16 @@ public class Databaze_studentu {
 	}
 	
 	boolean odebrat_studenta(int ID) {
-		try {
-			studenti.remove(ID);
-			return true;
-		}
-		catch(Exception e) {
-			System.err.println(e);
-			return false;
-		}
+			if(studenti.remove(ID) != null) {
+				return true;
+			}
+			else{
+				
+				return false;
+			}
+			
+
+
 	}
 	void celkový_prumer() {
 		double k_prumer,i_prumer;
@@ -84,6 +88,7 @@ public class Databaze_studentu {
 			
 			for(Integer znamka:student.znamky) {
 				if(student.getObor()==1) {
+					System.out.println(znamka);
 					i_celkem+=znamka;
 					i_i++;
 				}
@@ -95,8 +100,11 @@ public class Databaze_studentu {
 
 			}
 		}
+		System.out.println(i_celkem);
+		System.out.println(k_celkem);
 		k_prumer=(double)k_celkem/(double)k_i;
 		i_prumer=(double)i_celkem/(double)i_i;
+		System.out.println(i_prumer);
 		System.out.println("Celkový průměr\nkybernetická bezpečnost: "+k_prumer+"\ninformační bezpečnost: "+i_prumer);
 		}
 	void pocet_studentu() {
@@ -148,8 +156,8 @@ public class Databaze_studentu {
 			studenti.get(ID).pridat_znamku(znamka);
 			return true;
 		}
-		catch (Exception e) {
-			System.err.println(e);
+		catch (NullPointerException e) {
+			System.err.println("student ID:"+ID+" neexistuje");
 			return false;
 		}
 	}
@@ -232,10 +240,16 @@ public class Databaze_studentu {
 			        	  System.out.println("obor je 1 nebo 2");
 			        	  continue;
 			          }
+			          
+			          List<Integer> studentiNaSmazani = new ArrayList<>();
+
 			          for(Student student:studenti.values()) {
 			        	  if(student.getJmeno().equals(jmeno) && student.getPrijmeni().equals(prijmeni) && student.getDatum_narozeni().equals(datum)&&student.getObor()==obor){
-					          this.odebrat_studenta(student.getID()); 
+			        		  studentiNaSmazani.add(student.getID());
 			        	  }
+			          }
+			          for(int i=0,n=studentiNaSmazani.size();i<n;i++) {
+			        	  this.odebrat_studenta(studentiNaSmazani.get(i)); 
 			          }
 
 		  		}

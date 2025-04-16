@@ -36,7 +36,7 @@ public class Student {
 
 	public double getPrumer() {
 		int celkem=0,i=0;
-		for(Integer znamka:znamky) {
+		for(Integer znamka:this.znamky) {
 			celkem+=znamka;
 			i++;
 		}
@@ -74,7 +74,7 @@ public class Student {
 	public boolean pridat_znamku(int znamka) {
 		if(znamka>5||znamka<1) return false;
 		else {
-			znamky.add(znamka);
+			this.znamky.add(znamka);
 			return true;
 		}
 	}
