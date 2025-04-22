@@ -88,23 +88,24 @@ public class Databaze_studentu {
 			
 			for(Integer znamka:student.znamky) {
 				if(student.getObor()==1) {
-					System.out.println(znamka);
 					i_celkem+=znamka;
 					i_i++;
 				}
 					else {
-						//System.out.println(znamka);
 					k_celkem+=znamka;
 					k_i++;
 					}
 
 			}
 		}
+		/*
 		System.out.println(i_celkem);
 		System.out.println(k_celkem);
+				*/
 		k_prumer=(double)k_celkem/(double)k_i;
 		i_prumer=(double)i_celkem/(double)i_i;
-		System.out.println(i_prumer);
+
+		//System.out.println(i_prumer);
 		System.out.println("Celkový průměr\nkybernetická bezpečnost: "+k_prumer+"\ninformační bezpečnost: "+i_prumer);
 		}
 	void pocet_studentu() {
@@ -153,8 +154,13 @@ public class Databaze_studentu {
 	
 	boolean pridat_znamku(int ID,int znamka) {
 		try {
-			studenti.get(ID).pridat_znamku(znamka);
-			return true;
+			if(studenti.get(ID).pridat_znamku(znamka)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+			
 		}
 		catch (NullPointerException e) {
 			System.err.println("student ID:"+ID+" neexistuje");

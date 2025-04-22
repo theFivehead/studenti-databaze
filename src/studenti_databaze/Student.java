@@ -72,10 +72,12 @@ public class Student {
 		return datum_narozeni;
 	}
 	public boolean pridat_znamku(int znamka) {
-		if(znamka>5||znamka<1) return false;
-		else {
+		if(znamka>=1&&znamka<=5) {
 			this.znamky.add(znamka);
 			return true;
+		}
+		else {
+			return false;
 		}
 	}
 	public String dovednost() {

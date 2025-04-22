@@ -20,7 +20,7 @@ public class main {
     public static void main(String[] args) {
     	Databaze_studentu databaze;
     	boolean bezet=true,znovu=false,vypsat=true;
-    	String odpoved,o2;
+    	String odpoved;
     	Scanner sc=new Scanner(System.in);
 
     	System.out.println("Chete načíst informace ze SQL souboru?\ny]\nn]");
@@ -36,15 +36,16 @@ public class main {
 
     			System.out.println("data ze souboru "+nazev_databaze+".db se nepodařilo načíst");
     			System.out.println("chcete to zkusit znovu?\ny]\nn]");
-    			o2=sc.nextLine();
+    			odpoved=sc.nextLine();
     			if(odpoved.compareToIgnoreCase("y")==0) {
     				znovu=true;
     			}
     			else {
     	    		System.out.println("vytvářím novou databázi");
     	        	databaze = new Databaze_studentu();
+    	        	znovu=false;
     			}
-    		}	
+    		}
     	}while(znovu);
     	}
     	else {
@@ -57,7 +58,7 @@ public class main {
     		System.out.print("1)Přidat nového studenta\n2)zadat studentovi znamku\n"
     				+ "3)Propustit studenta\n4)Vypsat informace o studentovy\n"
     				+ "5)Spustit dovednost studenta\n6)Vypsat studenty\n7)Vypsat obecný studijní průměr\n"
-    				+ "8)Vypsat celkový počet studentů v oborech\n9)načíst studenty ze souboru(csv) \n10)smazat/propustit studenty dle souboru(csv)\n"
+    				+ "8)Vypsat celkový počet studentů v oborech\n9)načíst studenty ze souboru(csv) \n10)smazat/propustit studenty dle souboru\n"
     				+ "11)ukončit program\n");
     		}
     		else {
@@ -114,7 +115,6 @@ public class main {
     		    }
     		    case 7: {
     		        // Vypsat obecný studijní průměr
-    		        System.out.println("Výpis obecného studijního průměru");
     		        databaze.celkový_prumer();
     		        break;
     		    }
