@@ -1,6 +1,5 @@
 package studenti_databaze;
 
-import java.time.LocalDate;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -68,12 +67,12 @@ public class main {
     		try {
     			switch (Integer.parseInt(sc.nextLine())) {
     		    case 1: {
-    		        // Přidat nového studenta
+
     		        databaze.pridat_studenta_dialog();
     		        break;
     		    }
     		    case 2: {
-    		        // Zadat studentovi známku
+
     		        int id, znamka;
     		        id = id_interakce(sc);
     		        System.out.println("Zadejte známku (1-5)");
@@ -88,7 +87,7 @@ public class main {
     		        break;
     		    }
     		    case 3: {
-    		        // Propustit studenta
+    
     		        int id = id_interakce(sc);
     		        if (databaze.odebrat_studenta(id)) {
     		            System.out.println("student byl odebrán");
@@ -98,33 +97,33 @@ public class main {
     		        break;
     		    }
     		    case 4: {
-    		        // Vypsat informace o studentovi
+    	
     		        System.out.println(databaze.vypsat_studenta(id_interakce(sc)).toString());
     		        break;
     		    }
     		    case 5: {
-    		        // Spustit dovednost studenta
+    	
     		        System.out.println(databaze.vypsat_studenta(id_interakce(sc)).dovednost());
     		        break;
     		    }
     		    case 6: {
-    		        // Vypsat studenty
+ 
     		        System.out.println("Výpis studentů:");
     		        System.out.println(databaze.vypsat_studenty());
     		        break;
     		    }
     		    case 7: {
-    		        // Vypsat obecný studijní průměr
+    
     		        databaze.celkový_prumer();
     		        break;
     		    }
     		    case 8: {
-    		        // Vypsat celkový počet studentů v oborech
+    
     		        databaze.pocet_studentu();
     		        break;
     		    }
     		    case 9: {
-    		        // Načíst studenty ze souboru
+    
     		        String nazev_souboru;
     		        System.out.println("Zadejte název souboru");
     		        nazev_souboru = sc.nextLine();
@@ -136,7 +135,7 @@ public class main {
     		        break;
     		    }
     		    case 10: {
-    		        // Smazat studenty ze souboru
+    
     		        String nazev_souboru;
     		        boolean dleID=false;
     		        System.out.println("Zadejte název souboru");
@@ -147,7 +146,7 @@ public class main {
     		        break;
     		    }
     		    case 11: {
-    		        // Ukončit program
+    	
     		        bezet = false;
     		        System.out.println("Zadejte nazev databaze do, ktere se studenti ulozi");
     		        SqliteDatabaze.ulozit_data(sc.nextLine(), databaze);

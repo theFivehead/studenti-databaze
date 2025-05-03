@@ -49,6 +49,7 @@ public class Databaze_studentu {
 		if(this.pridat_studenta(s)) {
 			System.out.printf("Student %s %s s datem narozeni:%s a ID:%d byl uspesne pridan",jmeno,prijmeni,narozeni.toString(),s.getID());
 		};
+		Dsc.close();
 	}
 	boolean pridat_studenta(Student student) {
 		try {
@@ -98,14 +99,12 @@ public class Databaze_studentu {
 
 			}
 		}
-		/*
-		System.out.println(i_celkem);
-		System.out.println(k_celkem);
-				*/
+
+
 		k_prumer=(double)k_celkem/(double)k_i;
 		i_prumer=(double)i_celkem/(double)i_i;
 
-		//System.out.println(i_prumer);
+
 		System.out.println("Celkový průměr\nkybernetická bezpečnost: "+k_prumer+"\ninformační bezpečnost: "+i_prumer);
 		}
 	void pocet_studentu() {

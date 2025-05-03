@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 public interface SqliteDatabaze {
 	 public static void ulozit_data(String JDatabaze,Databaze_studentu ukladanaDatabaze) {
-	     // Register the SQLite JDBC driver
+	   
 		 boolean tStudent=false,tZnamky=false;
 	        try {
 	            Class.forName("org.sqlite.JDBC");
@@ -35,7 +35,7 @@ public interface SqliteDatabaze {
 
 	        String url = "jdbc:sqlite:"+JDatabaze+".db";
 
-	        // SQL statement for creating the "student" table.
+	      
 	        String sqlStudent = "CREATE TABLE IF NOT EXISTS studenti ("
 	                + " ID_s INTEGER PRIMARY KEY, "
 	                + " Jmeno VARCHAR(255) NOT NULL, "
@@ -44,7 +44,7 @@ public interface SqliteDatabaze {
 	                + " obor TINYINT NOT NULL"
 	                + ");";
 
-	        // SQL statement for creating the "znamky" table.
+	     
 	        String sqlZnamky = "CREATE TABLE IF NOT EXISTS znamky ("
 	                + " ID_z INTEGER PRIMARY KEY AUTOINCREMENT, "
 	                + " ID_s INTEGER NOT NULL, "
@@ -55,11 +55,11 @@ public interface SqliteDatabaze {
 	        try (Connection conn = DriverManager.getConnection(url);
 	             Statement stmt = conn.createStatement()) {
 
-	            // Create the student table
+	          
 	            stmt.execute(sqlStudent);
 	            tStudent=true;
 
-	            // Create the znamky table
+	      
 	            stmt.execute(sqlZnamky);
 	            tZnamky=true;
 		        if(tStudent && tZnamky) {
@@ -69,7 +69,7 @@ public interface SqliteDatabaze {
 		        System.out.println("Ukladaji se data nevypinejte program, aby nedoslo ke poskozeni dat.");
 		        Integer[] id_studentu=ukladanaDatabaze.getIDs();
 		        
-		        System.out.println();
+
 		        for(Integer id:id_studentu) {
 		        	System.out.print(".");
 		        	PreparedStatement sqlVlozStudenta = conn.prepareStatement("INSERT INTO studenti VALUES(?,?,?,?,?)");

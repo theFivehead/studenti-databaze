@@ -12,7 +12,7 @@ public class Student {
 	private String jmeno, prijmeni;
 	private int ID=-1;
 	private LocalDate datum_narozeni;
-	private int  obor = 0;//telekomunikace-1,kyberbezpecnost-2
+	private int  obor = 0;
 	ArrayList<Integer> znamky=new ArrayList<Integer>();
 
 
@@ -87,7 +87,7 @@ public class Student {
 			try {
 			HashMap<Character, String> morseMap = new HashMap<>();
 			String encodedMorse="";
-	        // Anglická abeceda
+	 
 	        morseMap.put('A', ".-");
 	        morseMap.put('B', "-...");
 	        morseMap.put('C', "-.-.");
@@ -115,7 +115,7 @@ public class Student {
 	        morseMap.put('Y', "-.--");
 	        morseMap.put('Z', "--..");
 
-	        // Čísla (volitelné)
+	   
 	        morseMap.put('0', "-----");
 	        morseMap.put('1', ".----");
 	        morseMap.put('2', "..---");
@@ -127,7 +127,7 @@ public class Student {
 	        morseMap.put('8', "---..");
 	        morseMap.put('9', "----.");
 
-	        // Česká diakritická písmena (používají se rozšíření Morseovy abecedy)
+	     
 	        morseMap.put('Á', ".--.-");
 	        morseMap.put('Č', "----");
 	        morseMap.put('Ď', "-..-.");
@@ -140,7 +140,7 @@ public class Student {
 	        morseMap.put('Š', "----");
 	        morseMap.put('Ť', "-.-.-");
 	        morseMap.put('Ú', "..--");
-	        morseMap.put('Ů', "..--"); // stejné jako Ú
+	        morseMap.put('Ů', "..--"); 
 	        morseMap.put('Ý', "-.--");
 	        morseMap.put('Ž', "--..-");
 	        
@@ -177,7 +177,7 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
+		
 		return "ID:"+this.ID+" jmeno:"+this.jmeno+" "+this.prijmeni+" narozen:"+datum_narozeni.toString()+" prumer:"+this.getPrumer();
 	}
 
