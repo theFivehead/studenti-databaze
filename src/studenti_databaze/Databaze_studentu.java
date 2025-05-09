@@ -49,7 +49,7 @@ public class Databaze_studentu {
 		if(this.pridat_studenta(s)) {
 			System.out.printf("Student %s %s s datem narozeni:%s a ID:%d byl uspesne pridan",jmeno,prijmeni,narozeni.toString(),s.getID());
 		};
-		Dsc.close();
+
 	}
 	boolean pridat_studenta(Student student) {
 		try {
@@ -196,7 +196,7 @@ public class Databaze_studentu {
 		          this.pridat_studenta(new Student(csv_data[0],csv_data[1],datum,obor));
 
 		        }
-		      sSc.close();
+
 		}
 		catch(FileNotFoundException e){
 			System.err.println(e);
@@ -260,7 +260,6 @@ public class Databaze_studentu {
 		  		}
 		  		}
 		        }
-		      sSc.close();
 		}
 		catch(FileNotFoundException e){
 			System.err.println(e);
